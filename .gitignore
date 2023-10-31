@@ -1,0 +1,9 @@
+build/
+.cache/
+*.o
+*.a
+*.dll
+*.lib
+*.tmp
+*.log
+*.ini
