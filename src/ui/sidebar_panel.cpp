@@ -1,8 +1,4 @@
-#include "sidebar_panel.h"
-
-#include "core.h"
-#include "imgui.h"
-#include <cstdint>
+#include "ui.h"
 
 enum {
   UI_TextFlags_PosLeft,

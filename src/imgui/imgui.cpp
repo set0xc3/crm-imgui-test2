@@ -1,6 +1,8 @@
 #include "imgui.h"
 
-#include "core.h"
+#include "ui/ui.h"
+
+#include "app.h"
 
 static float font_size         = 16.0f;
 static float display_dpi       = 0.0f;
@@ -34,8 +36,8 @@ imgui_init(void)
   ImGui::StyleColorsLight();
   imgui_set_custom_theme_colors();
 
-  ImGui_ImplSDL2_InitForOpenGL(core_get()->sdl.window,
-                               core_get()->sdl.gl_context);
+  ImGui_ImplSDL2_InitForOpenGL(app_get()->sdl.window,
+                               app_get()->sdl.gl_context);
   ImGui_ImplOpenGL2_Init();
 }
 
