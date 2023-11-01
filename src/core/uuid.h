@@ -6,7 +6,7 @@ struct uuid {
   char value[36];
 };
 
-inline static uuid
+inline uuid
 uuid_gen(void)
 {
   uuid result = { 0 };

@@ -11,5 +11,4 @@
 void ui_show(void);
 void ui_process_event(SDL_Event *sdl_event);
 
-void clients_view_show(void);
-void sidebar_panel_show(void);
+void ui_clients_view_show(void);

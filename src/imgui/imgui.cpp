@@ -6,7 +6,7 @@
 
 static float font_size         = 16.0f;
 static float display_dpi       = 0.0f;
-static float display_dpi_scale = 2.0f;
+static float display_dpi_scale = 1.0f;
 
 void
 imgui_init(void)
@@ -18,6 +18,8 @@ imgui_init(void)
   ImGuiIO &io = ImGui::GetIO();
   (void)io;
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+  // | ImGuiConfigFlags_DpiEnableScaleViewports
+  // | ImGuiConfigFlags_DpiEnableScaleFonts;
 
   // TODO:
   {
@@ -47,7 +49,7 @@ imgui_set_custom_theme_colors(void)
   ImGuiStyle &style = ImGui::GetStyle();
 
   // Border
-  style.FrameBorderSize = false;
+  style.FrameBorderSize = true;
   style.TabBorderSize   = true;
 
   // Rounding
@@ -59,8 +61,11 @@ imgui_set_custom_theme_colors(void)
   style.GrabRounding      = 4;
   style.TabRounding       = 4;
 
+  style.Colors[ImGuiCol_TitleBgActive] = ImVec4{ 1.0f, 1.0f, 1.0f, 1.0f };
+  style.Colors[ImGuiCol_MenuBarBg]     = ImVec4{ 1.0f, 1.0f, 1.0f, 1.0f };
+  style.Colors[ImGuiCol_Tab]           = ImVec4{ 1.0f, 1.0f, 1.0f, 1.0f };
+  style.Colors[ImGuiCol_WindowBg]      = ImVec4{ 1.0f, 1.0f, 1.0f, 1.0f };
 #if 0
-  style.Colors[ImGuiCol_WindowBg] = ImVec4{ 0.1f, 0.105f, 0.11f, 1.0f };
 
   // Headers
   style.Colors[ImGuiCol_Header]        = ImVec4{ 0.2f, 0.205f, 0.21f, 1.0f };
