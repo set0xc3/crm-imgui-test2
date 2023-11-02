@@ -1,5 +1,6 @@
 build/
 .cache/
+
 *.o
 *.a
 *.dll
@@ -7,3 +8,5 @@ build/
 *.tmp
 *.log
 *.ini
+
+src/config.h

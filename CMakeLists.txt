@@ -51,7 +51,16 @@ set(ASSETS_DST "$<TARGET_FILE_DIR:${PROJECT_NAME}>/assets")
 set(ASSETS_CMD create_symlink)
 set(ASSETS_MSG "Link assets")
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
   COMMAND ${CMAKE_COMMAND} -E echo "${ASSETS_MSG}: ${ASSETS_SRC} to ${ASSETS_DST}"
   COMMAND ${CMAKE_COMMAND} -E ${ASSETS_CMD} "${ASSETS_SRC}" "${ASSETS_DST}"
 )
+
+# Check if config.h exists, if not, copy from config.def.h
+if(NOT EXISTS "${CMAKE_SOURCE_DIR}/src/config.h")
+  configure_file(
+    "${CMAKE_SOURCE_DIR}/src/config.def.h"
+    "${CMAKE_SOURCE_DIR}/src/config.h"
+    COPYONLY
+  )
+endif()

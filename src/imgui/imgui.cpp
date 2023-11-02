@@ -4,9 +4,9 @@
 
 #include "app.h"
 
-static float font_size         = 16.0f;
-static float display_dpi       = 0.0f;
-static float display_dpi_scale = 1.0f;
+#include "config.h"
+
+static float display_dpi = 0.0f;
 
 void
 imgui_init(void)
